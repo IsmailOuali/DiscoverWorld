@@ -29,7 +29,7 @@
     <header class="site-header js-site-header">
       <div class="container-fluid">
         <div class="row align-items-center">
-          <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="index.html">Discover World</a></div>
+          <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="/">Discover World</a></div>
           <div class="col-6 col-lg-8">
 
 
@@ -46,7 +46,7 @@
                   <div class="row full-height align-items-center">
                     <div class="col-md-6 mx-auto">
                       <ul class="list-unstyled menu">
-                        <li><a href="welcome.blade">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         <li class="active"><a href="./">Creer votre aventure</a></li>
                       </ul>
                     </div>

@@ -47,7 +47,7 @@
                     <div class="col-md-6 mx-auto">
                       <ul class="list-unstyled menu">
                         <li class="active"><a href="./">Home</a></li>
-                        <li><a href="./addAdv.php">Creer votre aventure</a></li>
+                        <li><a href="/addAdv">Creer votre aventure</a></li>
                       </ul>
                     </div>
                   </div>

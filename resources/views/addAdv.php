@@ -46,8 +46,8 @@
                   <div class="row full-height align-items-center">
                     <div class="col-md-6 mx-auto">
                       <ul class="list-unstyled menu">
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="rooms.html">Creer votre aventure</a></li>
+                        <li><a href="welcome.blade">Home</a></li>
+                        <li class="active"><a href="./">Creer votre aventure</a></li>
                       </ul>
                     </div>
                   </div>

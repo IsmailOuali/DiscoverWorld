@@ -6,20 +6,24 @@ use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class adInsertController extends Controller
+class AdvInsertController extends Controller
 {
     //
     public function insertform(){
         return view('addAdv');
-        }
+    }
+
         public function insert(Request $request){
+            $request->validate([
+                "image" => "required"
+            ]);
         // $name = $request->input('name');
         // $description = $request->input('description');
-        $photo = $request->input('photo');
+        $image = $request->input('image');
         $data=array(
             // 'name'=>$name,"description"=>$description,
-        "photo"=>$photo);
-        DB::table('aventure')->insert($data);
+        "image"=>$image);
+        DB::table('photo')->insert($data);
         echo "Record inserted successfully.<br/>";
         // echo '<a href = "/insert">Click Here</a> to go back.';
         }

@@ -73,7 +73,7 @@
                 </div> -->
 
                 <div data-mdb-input-init class="rounded form-outline mb-1">
-                  <input name="image" type="file" id="form4Example1" class="form-control" placeholder="Share pictures of the most unforgottable moments"/>
+                  <input name="image" type="file" multiple id="form4Example1" class="form-control" placeholder="Share pictures of the most unforgottable moments"/>
                 </div>
   
                 <!-- <div data-mdb-input-init class="rounded form-outline mb-4">

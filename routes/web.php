@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdvInsertController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,15 @@ Route::get('/', function () {
 
 Route::get('/addAdv', function () {
     return view('addAdv');
+});
+
+// Route::get('insert', [AdvInsertController::class, "insertform"]);
+Route::post('create', [AdvInsertController::class, "insert"]);
+// [AdvInsertController::class, "insert"]
+Route::get('/token', function (Request $request) {
+    $token = $request->session()->token();
+ 
+    $token = csrf_token();
+ 
+    // ...
 });

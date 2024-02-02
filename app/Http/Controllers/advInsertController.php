@@ -13,7 +13,7 @@ class AdvInsertController extends Controller
         return view('addAdv');
     }
 
-        public function insert(Request $request){
+    public function insert(Request $request){
             // $request->validate([
             //     "image" => "required"
             // ]);
@@ -23,9 +23,10 @@ class AdvInsertController extends Controller
         $data=array(
             'name'=>$name,"description"=>$description,
         // "image"=>$image
-    );
+        );
         DB::table('aventure')->insert($data);
         echo "Record inserted successfully.<br/>";
         echo '<a href = "/insert">Click Here</a> to go back.';
-        }
-        }
+        
+    }
+}

@@ -2,17 +2,17 @@
 
 namespace App\Models;
 
-use App\Models\Destination;
+use App\Models\Destinations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Aventure extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','description','destinationId','created_at','update_at'];
+    protected $fillable = ['name','description','destinationId'];
 
     public function destination()
     {
-        return $this->hasMany(Destination::class,'id');
+        return $this->hasMany(Destinations::class,'id');
     }
 }

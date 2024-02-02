@@ -90,7 +90,9 @@
                   <label for="checkin_date" class="font-weight-bold text-black">Destination name</label>
                   <div class="field-icon-wrap">
                     <div class="icon"><span class="icon-calendar"></span></div>
-                    <input type="text" id="checkin_date" class="form-control">
+                    <select name="dest" class="form-control">
+
+                    </select>
                   </div>
                 </div>
                 <div class="col-md-6 col-lg-3 align-self-end">

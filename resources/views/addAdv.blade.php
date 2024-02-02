@@ -68,17 +68,17 @@
             @csrf
                 
 
-                <!-- <div data-mdb-input-init class="rounded form-outline mb-1">
-                  <input type="text" id="form4Example1" class="form-control" placeholder="Give a name to your aventure"/>
-                </div> -->
-
                 <div data-mdb-input-init class="rounded form-outline mb-1">
-                  <input name="image" type="file" multiple id="form4Example1" class="form-control" placeholder="Share pictures of the most unforgottable moments"/>
+                  <input type="text" id="form4Example1" class="form-control" placeholder="Give a name to your aventure"/>
                 </div>
+
+                  <!-- <div data-mdb-input-init class="rounded form-outline mb-1">
+                    <input name="image" type="file" multiple id="form4Example1" class="form-control" placeholder="Share pictures of the most unforgottable moments"/>
+                  </div> -->
   
-                <!-- <div data-mdb-input-init class="rounded form-outline mb-4">
+                <div data-mdb-input-init class="rounded form-outline mb-4">
                   <textarea class="form-control" id="form4Example3" rows="4" placeholder="Give us a description to your experience"></textarea>
-                </div> -->
+                </div>
   
   
                 <button type="submit" data-mdb-ripple-init type="button" class="rounded btn btn-primary btn-block mb-4">Send</button>

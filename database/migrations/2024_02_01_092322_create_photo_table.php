@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('photo', function (Blueprint $table) {
             $table->id();
             $table->string('image');
-            $table->foreignId('avId')->constrained('aventure');
-            $table->timestamps();
+            $table->unsignedBigInteger('avId');
+            $table->foreign('avId')->references('id')->on('aventure');
+        
         });
     }
 

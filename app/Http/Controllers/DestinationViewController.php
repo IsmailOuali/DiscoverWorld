@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
+use App\Models\Destination;
 use App\Http\Controllers\Controller;
 
 class DestinationViewController extends Controller
@@ -11,10 +11,8 @@ class DestinationViewController extends Controller
     //
     public function index(){
 
-        $destination = DB::table('destination')
-        ->select("*")
-        ->get();
+        $destinations = Destination::all();
     
-        return view('addAdv',['destination'=>$destination]);
+        return view('addAdv',['destinations'=>$destinations]);
         }
 }

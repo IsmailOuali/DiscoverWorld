@@ -11,13 +11,19 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::create('aventures', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+        public function up()
+        {
+            Schema::disableForeignKeyConstraints(); 
+
+            Schema::create('aventures', function (Blueprint $table) {
+                $table->id();
+                $table->string('name')->nullable();
+                $table->string('description')->nullable();
+                $table->foreignId("destination_id")
+                ->constrained("destinations");
+                $table->timestamps();
+            });
+        }
 
     /**
      * Reverse the migrations.

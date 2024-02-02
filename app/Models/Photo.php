@@ -5,16 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Destination extends Model
+class Photo extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'name'
+        "image",
+        "aventure_id",
     ];
-
-    public function aventure()
-    {
-        return $this->belongsTo(Aventure::class,'id');
-    }
 }

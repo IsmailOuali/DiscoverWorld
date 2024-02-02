@@ -91,7 +91,9 @@
                   <div class="field-icon-wrap">
                     <div class="icon"><span class="icon-calendar"></span></div>
                     <select name="dest" class="form-control">
-
+                      @foreach($destinations as $destination)
+                      <option value="{{$destination->id}}">{{$destination->name}}</option>
+                      @endforeach
                     </select>
                   </div>
                 </div>
@@ -135,40 +137,18 @@
           </div>
         </div>
         <div class="row">
-
+          @foreach($aventures as $aventure)
           <div class="col-md-6 col-lg-4" data-aos="fade-up">
             <a href="#" class="room">
               <figure class="img-wrap">
-                <img src="images/img_1.jpg" alt="Free website template" class="img-fluid mb-3">
+                <img src="/images/storage/{{ $aventure->images[0]->image }}" alt="Free website template" class="img-fluid mb-3">
               </figure>
               <div class="p-3 text-center room-info">
-                <h2>Hotels in forests</h2>
+                <h2>{{ $aventure->name }}</h2>
               </div>
             </a>
           </div>
-
-          <div class="col-md-6 col-lg-4" data-aos="fade-up">
-            <a href="#" class="room">
-              <figure class="img-wrap">
-                <img src="images/image2.jpg" alt="Free website template" class="img-fluid mb-3">
-              </figure>
-              <div class="p-3 text-center room-info">
-                <h2>Discover Africa</h2>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-md-6 col-lg-4" data-aos="fade-up">
-            <a href="#" class="room">
-              <figure class="img-wrap">
-                <img src="images/image3.jpg" alt="Free website template" class="img-fluid mb-3">
-              </figure>
-              <div class="p-3 text-center room-info">
-                <h2>Savana Trip</h2>
-              </div>
-            </a>
-          </div>
-
+          @endforeach
 
         </div>
       </div>

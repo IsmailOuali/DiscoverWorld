@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdvInsertController;
+use App\Http\Controllers\AventureController;
 use App\Http\Controllers\DestinationViewController;
 use App\Http\Controllers\DestViewController;
 /*
@@ -15,15 +15,12 @@ use App\Http\Controllers\DestViewController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [AventureController::class, "index"]);
 
 Route::get('/addAdv', [DestinationViewController::class, "index"]);
 
-// Route::get('insert', [AdvInsertController::class, "insertform"]);
-Route::post('create', [AdvInsertController::class, "insert"]);
-// [AdvInsertController::class, "insert"]
+Route::post("/create-aventure", [AventureController::class,"store"]);
+
 Route::get('/token', function (Request $request) {
     $token = $request->session()->token();
  

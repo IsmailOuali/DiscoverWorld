@@ -64,28 +64,28 @@
       <div class="container">
         <div class="row site-hero-inner justify-content-center align-items-center">
           <div class="col-md-10 text-center" data-aos="fade-up">
-            <form action="/create" method="POST" style="width: 26rem;" enctype="multipart/form-data">
+            <form action="/create-aventure" method="POST" style="width: 26rem;" enctype="multipart/form-data">
             @csrf
                 
 
                 <div data-mdb-input-init class="rounded form-outline mb-1">
-                  <input type="text" id="form4Example1" class="form-control" placeholder="Give a name to your aventure"/>
+                  <input name="name" type="text" id="form4Example1" class="form-control" placeholder="Give a name to your aventure"/>
                 </div>
                 <div data-mdb-input-init class="rounded form-outline mb-1">
-                  <select type="text" name = "destination" id="form4Example1" class="form-control" placeholder="Give a name to your aventure">
+                  <select type="text" name = "destination_id" id="form4Example1" class="form-control" placeholder="Give a name to your aventure">
 
-                    @foreach ($destination as $dest)
-                    <option value="destination">{{$dest->nameDest}}</option>
+                    @foreach ($destinations as $destination)
+                    <option value="{{$destination->id}}">{{$destination->name}}</option>
                     @endforeach
                   </select>
                 </div>
 
-                  <!-- <div data-mdb-input-init class="rounded form-outline mb-1">
-                    <input name="image" type="file" multiple id="form4Example1" class="form-control" placeholder="Share pictures of the most unforgottable moments"/>
-                  </div> -->
+                  <div data-mdb-input-init class="rounded form-outline mb-1">
+                    <input name="images[]" type="file" multiple id="form4Example1" class="form-control" placeholder="Share pictures of the most unforgottable moments"/>
+                  </div> 
   
                 <div data-mdb-input-init class="rounded form-outline mb-4">
-                  <textarea class="form-control" id="form4Example3" rows="4" placeholder="Give us a description to your experience"></textarea>
+                  <textarea name="description" class="form-control" id="form4Example3" rows="4" placeholder="Give us a description to your experience"></textarea>
                 </div>
   
   

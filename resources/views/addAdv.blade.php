@@ -71,6 +71,14 @@
                 <div data-mdb-input-init class="rounded form-outline mb-1">
                   <input type="text" id="form4Example1" class="form-control" placeholder="Give a name to your aventure"/>
                 </div>
+                <div data-mdb-input-init class="rounded form-outline mb-1">
+                  <select type="text" name = "destination" id="form4Example1" class="form-control" placeholder="Give a name to your aventure">
+
+                    @foreach ($destination as $dest)
+                    <option value="destination">{{$dest->nameDest}}</option>
+                    @endforeach
+                  </select>
+                </div>
 
                   <!-- <div data-mdb-input-init class="rounded form-outline mb-1">
                     <input name="image" type="file" multiple id="form4Example1" class="form-control" placeholder="Share pictures of the most unforgottable moments"/>

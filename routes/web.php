@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdvInsertController;
 use App\Http\Controllers\DestinationViewController;
+use App\Http\Controllers\DestViewController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes

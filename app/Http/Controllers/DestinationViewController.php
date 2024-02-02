@@ -9,6 +9,7 @@ class DestinationViewController extends Controller
 {
     //
     public function index(){
+
         $destination = DB::table('destination')
         ->select("*")
         ->get();

@@ -1,6 +1,11 @@
 # DiscoverWorld
 
-Lien de presentation (Jira):
+Lien de presentation du projet:
 
 
-Lien des diagrammes UML:
+
+Lien de Plannification (Jira):
+
+https://ismail-ouali.atlassian.net/jira/core/projects/DIS/board
+
+

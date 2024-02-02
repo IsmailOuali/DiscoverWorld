@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdvInsertController;
-
+use App\Http\Controllers\DestinationViewController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,9 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/addAdv', function () {
-    return view('addAdv');
-});
+Route::get('/addAdv', [DestinationViewController::class, "index"]);
 
 // Route::get('insert', [AdvInsertController::class, "insertform"]);
 Route::post('create', [AdvInsertController::class, "insert"]);

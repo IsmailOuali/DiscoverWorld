@@ -5,6 +5,8 @@ namespace App\Models;
 use App\Models\Destination;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+
 
 class Aventure extends Model
 {
@@ -18,5 +20,14 @@ class Aventure extends Model
     }
     public function images(){
         return $this->hasMany(Photo::class);
+    }
+
+    public static function adventureCount()
+    {
+        return DB::table('aventures')->count();
+    }
+    public static function destinationCount()
+    {
+        return DB::table('destinations')->count();
     }
 }

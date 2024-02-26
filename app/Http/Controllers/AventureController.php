@@ -20,29 +20,26 @@ class AventureController extends Controller
      */
     public function index()
     {
+        $aventureCount = Aventure::adventureCount(); 
+        $destinationCount = Aventure::destinationCount();
+
         return view ("welcome",[
             "aventures" => Aventure::all(),
             "destinations" => Destination::all(),
+            "aventureCount" => $aventureCount, 
+            "destinationCount" => $destinationCount, 
+
         ]);
         
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -55,48 +52,12 @@ class AventureController extends Controller
         return redirect("/");
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $aventure = Aventure::findOrFail($id);
+        $destinations = $aventure->destinations;
+    
+        return view('show', ['aventure' => $aventure, 'destinations' => $destinations]);
     }
 }

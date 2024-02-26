@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AventureController;
 use App\Http\Controllers\DestinationViewController;
 use App\Http\Controllers\DestViewController;
+use App\Http\Controllers\FilterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,5 +27,10 @@ Route::get('/token', function (Request $request) {
  
     $token = csrf_token();
  
-    // ...
 });
+
+Route::get('/show/{id}', [AventureController::class, 'show'])->name('adventures.show');
+
+
+
+Route::get('/filter-aventures', [FilterController::class, 'filterAventures']);

@@ -20,6 +20,7 @@
     
     <link rel="stylesheet" href="fonts/ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     <!-- Theme Style -->
     <link rel="stylesheet" href="css/style.css">
@@ -78,37 +79,68 @@
     </section>
     <!-- END section -->
 
-    <section class="section bg-light pb-0"  >
+    <section class="section bg-light pb-0">
       <div class="container">
-       
-        <div class="row check-availabilty" id="next">
-          <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
+          <div class="row check-availabilty" id="next">
+              <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
+                  <form action="#">
+                      <div class="row">
+                          <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                              <label for="checkin_date" class="font-weight-bold text-black">Destination name</label>
+                              <div class="field-icon-wrap">
+                                  <div class="icon"><span class="icon-calendar"></span></div>
+                                  <select name="dest" class="form-control">
+                                      @foreach($destinations as $destination)
+                                          <option value="{{$destination->id}}">{{$destination->name}}</option>
+                                      @endforeach
+                                  </select>
+                              </div>
+                          </div>
+                          <div class="col-md-6 col-lg-3 align-self-end">
+                              <button id="filterAventures" class="btn btn-primary btn-block text-white">Check Availabilty</button>
+                          </div>
 
-            <form action="#">
-              <div class="row">
-                <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
-                  <label for="checkin_date" class="font-weight-bold text-black">Destination name</label>
-                  <div class="field-icon-wrap">
-                    <div class="icon"><span class="icon-calendar"></span></div>
-                    <select name="dest" class="form-control">
-                      @foreach($destinations as $destination)
-                      <option value="{{$destination->id}}">{{$destination->name}}</option>
-                      @endforeach
-                    </select>
-                  </div>
-                </div>
-                <div class="col-md-6 col-lg-3 align-self-end">
-                  <button class="btn btn-primary btn-block text-white">Check Availabilty</button>
-                </div>
+                          <div class="col-md-2 col-lg-2 align-self-end">
+                                <label for="sortOption" class="font-weight-bold text-black">Sort Option</label>
+                                <select id="sortOption" name="sort" class="form-control">
+                                    <option value="asc">Ascending</option>
+                                    <option value="desc">Descending</option>
+                                </select>
+                          </div>
+                        </div>
+                  </form>
               </div>
-            </form>
           </div>
-
-
-        </div>
       </div>
-    </section>
-
+  </section>
+  
+  <section class="section" id="aventureList">
+      <div class="container">
+          <div class="row justify-content-center text-center mb-5">
+              <div class="col-md-7">
+                  <h2 class="heading" data-aos="fade-up">Aventures</h2>
+                  <p data-aos="fade-up" data-aos-delay="100">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+              </div>
+          </div>
+          <div class="row p-2">
+              @foreach($aventures as $aventure)
+                  <div class="col-md-6 col-lg-4" data-aos="fade-up" data-destination="{{ $aventure->destination_id }}">
+                      <a href="#" class="room">
+                          <figure class="img-wrap">
+                              <img src="/images/storage/{{ $aventure->images[0]->image }}" alt="Free website template" class="img-fluid mb-3">
+                          </figure>
+                          <div class="p-3 text-center room-info">
+                              <h2>{{ $aventure->name }}</h2>
+                              <p>{{ $aventure->created_at }}</p>
+                              <a href="{{ route('adventures.show', ['id' => $aventure->id]) }}">View Details</a>
+                          </div>
+                      </a>
+                  </div>
+              @endforeach
+          </div>
+      </div>
+  </section>
+    
     <section class="py-5 bg-light">
       <div class="container">
         <div class="row align-items-center">
@@ -119,37 +151,13 @@
             <img src="images/image1.jpg" alt="Image" class="img-fluid rounded">
           </div>
           <div class="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
-            <h2 class="heading">Welcome!</h2>
-            <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-            <p><a href="#" class="btn btn-primary text-white py-2 mr-3">Learn More</a> <span class="mr-3 font-family-serif"><em>or</em></span>
+            <h2 class="heading">Our numbers</h2>
+            <p class="mb-4">Number of adventures: {{ $aventureCount }}</p>
+            <p class="mb-4">Number of destinations: {{ $destinationCount }}</p>
+           
+            <p><a href="#" class="btn btn-primary text-white py-2 mr-3">Learn More</a> <span class="mr-3 font-family-serif"></span>
           </div>
           
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="row justify-content-center text-center mb-5">
-          <div class="col-md-7">
-            <h2 class="heading" data-aos="fade-up">Aventurures</h2>
-            <p data-aos="fade-up" data-aos-delay="100">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-          </div>
-        </div>
-        <div class="row">
-          @foreach($aventures as $aventure)
-          <div class="col-md-6 col-lg-4" data-aos="fade-up">
-            <a href="#" class="room">
-              <figure class="img-wrap">
-                <img src="/images/storage/{{ $aventure->images[0]->image }}" alt="Free website template" class="img-fluid mb-3">
-              </figure>
-              <div class="p-3 text-center room-info">
-                <h2>{{ $aventure->name }}</h2>
-              </div>
-            </a>
-          </div>
-          @endforeach
-
         </div>
       </div>
     </section>
@@ -194,5 +202,27 @@
     
 
     <script src="js/main.js"></script>
+    <script>
+      // $(document).ready(function () {
+      //     $('#filterAventures').on('click', function (e) {
+      //         e.preventDefault();
+  
+      //         var selectedDestinationId = $('select[name="dest"]').val();
+  
+      //         if (selectedDestinationId) {
+      //             $('[data-destination]').hide(); 
+  
+      //             $('[data-destination="' + selectedDestinationId + '"]').show();
+                  
+      //             if ($('[data-destination="' + selectedDestinationId + '"]').length === 0) {
+      //                 $('#aventureList').html('<p>No adventures found for the selected destination.</p>');
+      //             }
+      //         } else {
+      //             $('[data-destination]').show();
+      //         }
+      //     });
+      // });
+  </script>
+  
   </body>
 </html>
